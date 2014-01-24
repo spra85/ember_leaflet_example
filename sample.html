@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css">
+
+    <style>
+      #map {
+        min-width: 300px;
+        min-height: 300px
+      }
+    </style>
+
+    <script src='https://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script>
+    <script src='bower_components/jquery/jquery.js' type='text/javascript'></script>
+    <script src='bower_components/leaflet-dist/leaflet-src.js' type='text/javascript'></script>
+    <script src='bower_components/handlebars/handlebars.js' type='text/javascript'></script>
+    <script src='bower_components/ember/ember.js' type='text/javascript'></script>
+    <script src='bower_components/ember-data/ember-data.js' type='text/javascript'></script>
+    <script src='bower_components/ember-leaflet/ember-leaflet.js' type='text/javascript'></script>
+    <script src='bower_components/leaflet-plugins/layer/tile/Google.js' type='text/javascript'></script>
+    <script src='application.js' type='text/javascript'></script>
+    <title>
+      EmberLeaflet Example
+    </title>
+  </head>
+  <body id='container'>
+    <header>
+      <h1>EmberLeaflet Example</h1>
+    </header>
+
+    <div id='main'>
+      <script type="text/x-handlebars" data-template-name="application">
+        {{outlet}}
+      </script>
+    </div>
+
+    <script type="text/x-handlebars" data-template-name="places">
+      <div id="map-container" style="max-width: 400px;">
+        {{view App.MapView
+              id="map"
+            zoomBinding="zoom" centerBinding="center"}}
+      </div>
+    </script>
+  </body>
+  <script>
+      App.advanceReadiness();
+  </script>
+</html>
